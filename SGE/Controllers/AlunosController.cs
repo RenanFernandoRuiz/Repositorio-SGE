@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SGE.Data;
+using SGE.Migrations;
 using SGE.Models;
 
 namespace SGE.Controllers
@@ -197,6 +198,7 @@ namespace SGE.Controllers
 
                 // Exibe a imagem na view
                 ViewData["Imagem"] = imageBase64;
+
             }
             ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioId", aluno.TipoUsuarioId);
             return View(aluno);
