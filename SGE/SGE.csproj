@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Ocorrencias\**" />
+    <Content Remove="Views\Ocorrencias\**" />
+    <EmbeddedResource Remove="Views\Ocorrencias\**" />
+    <None Remove="Views\Ocorrencias\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.2" />
     <PackageReference Include="BootstrapIcons.AspNetCore" Version="1.11.0" />
     <PackageReference Include="jQuery" Version="3.7.1" />
