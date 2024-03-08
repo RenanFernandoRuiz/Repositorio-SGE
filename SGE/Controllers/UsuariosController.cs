@@ -202,7 +202,7 @@ namespace SGE.Controllers
 
             if (ModelState.IsValid)
             {
-                Aluno aluno = _context.Alunos.Where(a => a.Email == usuario.Email).FirstOrDefault();
+                Aluno aluno = _context.Alunos.Where(a => a.Email == usuario.Email).FirstOrDefault(a => a.Email == usuario.Email);
                 if (usuario.CadAtivo == false)
                 {
                     usuario.CadInativo = DateTime.Now;
