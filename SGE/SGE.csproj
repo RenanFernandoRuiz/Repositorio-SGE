@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\NovaPasta\**" />
+    <Content Remove="wwwroot\NovaPasta\**" />
+    <EmbeddedResource Remove="wwwroot\NovaPasta\**" />
+    <None Remove="wwwroot\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.2" />
     <PackageReference Include="BootstrapIcons.AspNetCore" Version="1.11.0" />
     <PackageReference Include="jQuery" Version="3.7.1" />
@@ -26,6 +33,10 @@
 
   <ItemGroup>
     <None Include="wwwroot\js\reservas.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\NovaPasta1\" />
   </ItemGroup>
 
 </Project>
