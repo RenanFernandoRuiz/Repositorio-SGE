@@ -25,6 +25,7 @@
                         </li>
 
                         <ul></ul>
+
                         <ul></ul>
                         <!-- Botão Usuários -->
                         <div class="btn-group">
@@ -43,6 +44,7 @@
                             </ul>
                         </div>
                         <ul></ul>
+
                         <ul></ul>
                         <!-- Botão Turmas e Salas -->
                         <div class="btn-group">
@@ -68,6 +70,7 @@
                             </ul>
                         </div>
                         <ul></ul>
+
                         <ul></ul>
                         <!-- Botão Ocorrência -->
                         <div class="btn-group">
@@ -112,7 +115,7 @@
 
                 @if (Context.Session.GetString("usuario") != null)
                 {
-                    
+
                 }
             </div>
         </nav>
@@ -123,11 +126,37 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color: #27B1BE; height:140px;">
         <div class="container">
-            &copy; 2024 - SGE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; TODOS OS DIREITOS RESERVADOS 2024 -
+
+                <a style="text-align: center;">Desenvolvido por AI11-SENAI</a>
+           <br/>
+
+                <button type="button" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-right"></i>
+                    Discord
+                </button>
+
+                <button type="button" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-right"></i>
+                    Github
+                </button>
+
+                <button type="button" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-right"></i>
+                    Facebook
+                </button>
+
+                <button type="button" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-right"></i>
+                    Whatsapp
+                </button>
+                
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
