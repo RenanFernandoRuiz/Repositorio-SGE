@@ -38,6 +38,7 @@ namespace SGE.Models
         public DateTime DataNascimento { get; set; }
 
         public bool CadAtivo { get; set; }
+
         public DateTime DataCadastro { get; set; }
         public DateTime? CadInativo { get; set; }
         public Guid? TipoUsuarioId { get; set; }

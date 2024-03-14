@@ -3,14 +3,14 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+<div class="col-md-3 mx-auto text-center mt-5">
 <h1>Create</h1>
-
+</div>
 <h4>Usuario</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-3 mx-auto">
+        <form class="custom-form" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UsuarioNome" class="control-label"></label>
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="CadAtivo" type="hidden" value="true" /> @Html.DisplayNameFor(model => model.CadAtivo)
+                    <input class="form-check-input" asp-for="CadAtivo" type="hidden" value="true" />
                 </label>
             </div>
             <div class="form-group">
@@ -43,13 +43,8 @@
                 <span asp-validation-for="DataCadastro" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CadInativo" class="control-label"></label>
-                <input asp-for="CadInativo" class="form-control" />
-                <span asp-validation-for="CadInativo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="TipoUsuarioId" class="control-label"></label>
-                <select asp-for="TipoUsuarioId" class ="form-control" asp-items="ViewBag.TipoUsuarioId"></select>
+                <select asp-for="TipoUsuarioId" class="form-control" asp-items="ViewBag.TipoUsuarioId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -63,5 +58,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
