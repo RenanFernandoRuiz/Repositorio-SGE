@@ -3,8 +3,8 @@ html {
 }
 
 @media (min-width: 768px) {
-    html {Alteracoes 
-        font-size: 16px;
+    html {
+        Alteracoes font-size: 16px;
     }
 }
 
@@ -21,8 +21,27 @@ body {
     margin-bottom: 60px;
 }
 
-#divHome{
+#divHome {
     background-image: url(../img/menufundo.jpeg);
     background-size: cover;
     min-height: 100vh;
+}
+
+.custom-form {
+    border: 1px solid;
+    border-color: #FACC2E;
+    background-color: #ECECEC;
+    width: 25em;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    align-items: center;
+    display: flex;
+    width: 22em;
+    color: #F5F5F5;
+    border: 1px solid;
+    border-color: #FACC2E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
