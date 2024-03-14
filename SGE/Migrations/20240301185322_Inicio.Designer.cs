@@ -12,7 +12,7 @@ using SGE.Data;
 namespace SGE.Migrations
 {
     [DbContext(typeof(SGEContext))]
-    [Migration("20240229112437_Inicio")]
+    [Migration("20240301185322_Inicio")]
     partial class Inicio
     {
         /// <inheritdoc />
