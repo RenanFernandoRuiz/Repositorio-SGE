@@ -11,57 +11,114 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3 " style="background-color: #27B1BE; height:80px;">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SGE</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-imagem">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                                <img src="img/SCE (3).png" alt="Descrição da Imagem" style="width: 10px; height: 10px; margin-right: 5px;">
+                                Home
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TiposUsuario" asp-action="Index">Tipos de Usuários</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="Index">Turmas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AlunosTurma" asp-action="ListaAlunos">Alunos por Turma</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Salas" asp-action="Index">Salas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ReservasSala" asp-action="Reservas">Reservas de Sala</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TiposOcorrencia" asp-action="Index">Tipos de Ocorrência</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Ocorrencias" asp-action="Index">Ocorrências</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Ocorrencias" asp-action="ListaOcorrencias">Boletim de Ocorrências</a>
-                        </li>
+
+                        <ul></ul>
+
+                        <ul></ul>
+                        <!-- Botão Usuários -->
+                        <div class="btn-group ">
+                            <button type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Usuários
+                            </button>
+                            <ul class="dropdown-menu flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="TiposUsuario" asp-action="Index">Tipos de Usuários</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <ul></ul>
+
+                        <ul></ul>
+                        <!-- Botão Turmas e Salas -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Turmas e Salas
+                            </button>
+                            <ul class="dropdown-menu flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="AlunosTurma" asp-action="ListaAlunos">Alunos por Turma</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="Index">Turmas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Salas" asp-action="Index">Salas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ReservasSala" asp-action="Reservas">Reservas de Sala</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul></ul>
+
+                        <ul></ul>
+                        <!-- Botão Ocorrência -->
+                        <div class="btn-group ">
+                            <button type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ocorrências
+                            </button>
+                            <ul class="dropdown-menu flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="TiposOcorrencia" asp-action="Index">Tipos de Ocorrência</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ocorrencias" asp-action="Index">Ocorrências</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ocorrencias" asp-action="ListaOcorrencias">Boletim de Ocorrências</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
 
                     </ul>
                 </div>
+
+
+
+
+
+
+                <a>Prazer, Usuário!</a>
+                <ul></ul>
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-outline-light text-dark  bi bi-arrow-return-right" asp-area="" asp-controller="Home" asp-action="Logout">
+                        <svg bootstrap-icon="ArrowReturnRight" width="32" height="22" aria-label="Vendas" class="mb-3" style="margin-top:15px"></svg>
+                        Login/out
+                    </a>
+                </div>
+
+
+
+
                 @if (Context.Session.GetString("usuario") != null)
                 {
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-outline-light text-dark" asp-area="" asp-controller="Usuarios" asp-action="SelecionaTipo" asp-route-id="@Context.Session.GetString("usuarioId")">Olá, @Context.Session.GetString("usuario") </a>
-                        <a class="btn btn-outline-light text-dark" asp-area="" asp-controller="Home" asp-action="Logout"> Logout</a>
-                    </div>
+
                 }
             </div>
         </nav>
@@ -72,11 +129,39 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - SGE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-muted" style="background-color: #27B1BE; padding: 10px 0;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>&copy; TODOS OS DIREITOS RESERVADOS 2024 - </div>
+            <div style="text-align:center">Desenvolvido por AI11-SENAI</div>
+
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                    <a href="https://discord.gg/qp7A2wnd" target="_blank" class="btn btn-outline-light text-dark bi bi-arrow-return-right">
+                        <svg bootstrap-icon="Discord" width="40" height="20" aria-label="Discord" class="mb-3" style="margin-top: 15px;"></svg>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://github.com/RenanFernandoRuiz/Repositorio-SGE" target="_blank" class="btn btn-outline-light text-dark bi bi-arrow-return-right">
+                        <svg bootstrap-icon="Github" width="40" height="20" aria-label="GitHub" class="mb-3" style="margin-top: 15px;"></svg>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn btn-outline-light text-dark  bi bi-arrow-return-right" asp-area="" asp-controller="Home" asp-action="Logout">
+                        <svg bootstrap-icon="Facebook" width="40" height="20" aria-label="Vendas" class="mb-3" style="margin-top:15px"></svg>
+
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://wa.me/5514991525037" class="btn btn-outline-light text-dark bi bi-arrow-return-right">
+                        <svg bootstrap-icon="Whatsapp" width="40" height="20" aria-label="Vendas" class="mb-3" style="margin-top: 15px"></svg>
+                    </a>
+                </li>
+            </ul>
+
+
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
