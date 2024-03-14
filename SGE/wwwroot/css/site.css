@@ -20,3 +20,9 @@ html {
 body {
     margin-bottom: 60px;
 }
+
+#divAluno {
+    background-image: url(../img/sla.png);
+    background-size: cover;
+    min-height: 60vh;
+}
