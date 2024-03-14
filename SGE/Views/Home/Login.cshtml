@@ -2,12 +2,12 @@
 @{
     ViewData["Title"] = "Login";
 }
-<body id="divLogin" class="text-center">
+<div id="divLogin" class="text-center">
 
 
     @if (ViewData["Erro"] != null)
     {
-        <div class="row d-flex justify-content-center mt-5">
+        <div class="row d-flex justify-content-center pt-5">
             <div class="col-md-4 text-center">
                 <div class="alert alert-danger">
                     <strong> @ViewData["Erro"] </strong>
@@ -17,7 +17,7 @@
     }
 
     <div class="container">
-        <div class="row d-flex justify-content-center mt-5">
+        <div class="row d-flex justify-content-center pt-5">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
@@ -33,10 +33,25 @@
                             <div class="form-group mt-3">
                                 <label for="inSenha" class="control-label">Digite sua Senha</label>
                                 <input name="inSenha" id="inSenha" type="password" class="form-control" />
+
                             </div>
-                            <div class="form-group mt-3">
-                                <label for="inSenha" class="control-label">Digite sua Categoria</label>
+                            <div class="form-group mt-6">
+                               
+                                <select id="opcoes">
+                                    <option value="opcao1">Aluno(a)</option>
+                                    <option value="opcao2">Professor(a)</option>
+                                    <option value="opcao3">Administrador</option>
+                                </select>
+
+                                <script id="opcoes" size="5">
+                                    document.getElementById("opcoes").addEventListener("change", function () {
+                                        var selectedOption = this.value;
+                                        console.log("Opção selecionada:", selectedOption);
+                                    });
+                                </script>
+
                             </div>
+                       
                             <div class="form-group mt-3 ">
                                 <input type="submit" value="Entrar" class="btn btn-primary " />
                             </div>
@@ -48,4 +63,4 @@
             </div>
         </div>
     </div>
-</body>
+</div>
