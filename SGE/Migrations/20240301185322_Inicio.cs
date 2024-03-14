@@ -176,19 +176,19 @@ namespace SGE.Migrations
                         column: x => x.AlunoId,
                         principalTable: "Aluno",
                         principalColumn: "AlunoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Ocorrencia_TipoOcorrencia_TipoOcorrenciaId",
                         column: x => x.TipoOcorrenciaId,
                         principalTable: "TipoOcorrencia",
                         principalColumn: "TipoOcorrenciaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Ocorrencia_Usuario_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuario",
                         principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
