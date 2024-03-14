@@ -20,3 +20,9 @@ html {
 body {
     margin-bottom: 60px;
 }
+
+#divHome{
+    background-image: url(../img/menufundo.jpeg);
+    background-size: cover;
+    min-height: 100vh;
+}
