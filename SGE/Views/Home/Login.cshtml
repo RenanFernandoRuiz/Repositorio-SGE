@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<SGE.Models.Usuario>
 @{
     ViewData["Title"] = "Login";
+
 }
 <div id="divLogin" class="text-center">
 
@@ -35,15 +36,30 @@
                                 <input name="inSenha" id="inSenha" type="password" class="form-control" />
 
                             </div>
-                            <div class="form-group mt-6">
-                               
-                                <select id="opcoes">
-                                    <option value="opcao1">Aluno(a)</option>
-                                    <option value="opcao2">Professor(a)</option>
-                                    <option value="opcao3">Administrador</option>
+
+                            <label class="control-label" style="margin-top:20px;">Categoria</label>
+
+                            <div class="form-control " style="margin-top:0px;">
+
+                                <style>
+                                    .select-custom {
+                                        height: 35px; /* Defina a altura desejada */
+                                        width: 1000px;
+                                        margin-top: -5px;
+                                        margin-bottom: -5px;
+                                        margin-left: -10px;
+                                        margin-right: -10px;
+                                        border: none;
+                                    }
+                                </style>
+
+                                <select name="inCategoria" id="inCategoria" class="select-custom">
+                                    <option value="2">Aluno(a)</option>
+                                    <option value="3">Professor(a)</option>
+                                    <option value="1">Administrador</option>
                                 </select>
 
-                                <script id="opcoes" size="5">
+                                <script id="inCategoria">
                                     document.getElementById("opcoes").addEventListener("change", function () {
                                         var selectedOption = this.value;
                                         console.log("Opção selecionada:", selectedOption);
@@ -51,7 +67,7 @@
                                 </script>
 
                             </div>
-                       
+
                             <div class="form-group mt-3 ">
                                 <input type="submit" value="Entrar" class="btn btn-primary " />
                             </div>
