@@ -4,45 +4,52 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center my-5">
+        <div class="card border border-warning-subtle">
+            <div class="card-body">
+                <div id="alinhar">
+                    <h1>Sala</h1> <a asp-action="Create" target="_blank" class="btn btn-info">Criar </a>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr style="border-color:black">
+                            <th>
+                                SalaNome
+                            </th>
+                            <th>
+                                CadAtivo
+                            </th>
+                            <th>
+                                CadInativo
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SalaNome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CadAtivo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CadInativo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SalaNome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CadAtivo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CadInativo)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.SalaId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.SalaId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.SalaId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                        @foreach (var item in Model)
+                        {
+                            <tr style="border-color:black">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SalaNome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CadAtivo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CadInativo)
+                                </td>
+                                <td class="text-end">
+                                    <a asp-action="Edit" asp-route-id="@item.SalaId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="PenFill" width="40" height="20" aria-label="PenFill" color="rgba(250, 204, 46, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                    <a asp-action="Details" asp-route-id="@item.SalaId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="CardList" width="40" height="20" aria-label="CardList" color="rgba(0, 255, 10, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                    <a asp-action="Delete" asp-route-id="@item.SalaId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="TrashFill" width="40" height="20" aria-label="TrashFill" color="rgba(255, 0, 0, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -60,10 +60,13 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-h1 {
-    font-family: "Castellar";
+#alinhar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.iconbtn{
-    margin-right:0;
+#bagulho {
+    display: flex;
+    justify-content: center;
 }
