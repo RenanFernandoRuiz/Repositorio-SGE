@@ -194,30 +194,29 @@ namespace SGE.Controllers
             if (_context.Usuarios.FirstOrDefault(u => u.UsuarioNome == "Administrador").UsuarioId == id)
             {
                 ViewData["Erro"] = "Não é possível Editar o usuário Administrador";
-                ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo", usuario.TipoUsuarioId);
+                ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioId", usuario.TipoUsuarioId);
                 return View();
             }
 
-            //problema de salvamento , após alterações do edit.
 
             if (ModelState.IsValid)
             {
-                Aluno aluno = _context.Alunos.Where(a => a.Email == usuario.Email).FirstOrDefault(a => a.Email == usuario.Email);
                 if (usuario.CadAtivo == false)
                 {
                     usuario.CadInativo = DateTime.Now;
-                    aluno.CadAtivo = true;
-                    aluno.CadInativo = DateTime.Now;
                 }
                 else
                 {
-                    aluno.CadAtivo = false;
                     usuario.CadInativo = null;
-                    aluno.CadInativo = null;
                 }
-                try
+
+                usuario.TipoUsuario = _context.TiposUsuario.Where(a => a.TipoUsuarioId == usuario.TipoUsuarioId).FirstOrDefault();
+                _context.Update(usuario);
+                await _context.SaveChangesAsync();
+
+                if (usuario.TipoUsuarioId == _context.TiposUsuario.FirstOrDefault(a => a.Tipo == "Aluno").TipoUsuarioId)
                 {
-                    usuario.TipoUsuario = _context.TiposUsuario.Where(a => a.TipoUsuarioId == usuario.TipoUsuarioId).FirstOrDefault();
+                    Aluno aluno = _context.Alunos.Where(a => a.Email == usuario.Email).FirstOrDefault();
                     aluno.Senha = usuario.Senha;
                     aluno.Celular = usuario.Celular;
                     aluno.AlunoNome = usuario.UsuarioNome;
@@ -225,24 +224,28 @@ namespace SGE.Controllers
                     aluno.TipoUsuarioId = usuario.TipoUsuarioId;
                     aluno.TipoUsuario = usuario.TipoUsuario;
 
-                    _context.Update(usuario);
-                    _context.Alunos.Update(aluno);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UsuarioExists(usuario.UsuarioId))
+                    if (usuario.CadAtivo == false)
                     {
-                        return NotFound();
+                        usuario.CadInativo = DateTime.Now;
+                        aluno.CadAtivo = false;
+                        aluno.CadInativo = DateTime.Now;
                     }
                     else
                     {
-                        throw;
+                        aluno.CadAtivo = true;
+                        usuario.CadInativo = null;
+                        aluno.CadInativo = null;
                     }
+
+                    _context.Alunos.Update(aluno);
+                    await _context.SaveChangesAsync();
+                    _context.Update(usuario);
+                    await _context.SaveChangesAsync();
                 }
+
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo", usuario.TipoUsuarioId);
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioId", usuario.TipoUsuarioId);
             return View(usuario);
         }
 

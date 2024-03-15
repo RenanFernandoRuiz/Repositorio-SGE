@@ -20,7 +20,7 @@
     </div>
 }
 
-<div class="row">
+<div id="custom-form" class="row">
     <div class="col-md-4">
         @if (ViewData["Imagem"] != null)
         {
@@ -133,9 +133,7 @@
     </div>
 </div>
 <br />
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 <script>
     document.getElementById("alterarFoto").addEventListener("click", function () {
