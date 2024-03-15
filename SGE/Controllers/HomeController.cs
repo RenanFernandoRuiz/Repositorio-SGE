@@ -70,8 +70,9 @@ namespace SGE.Controllers
             return View(usuarios);
         }
         [HttpPost]
-        public IActionResult Login(string inEmail, string inSenha)
+        public IActionResult Login(string inEmail, string inSenha, string inCategoria)
         {
+            var tipoInformado = "";
             if (inEmail == null)
             {
                 ViewData["Erro"] = "Digite seu e-mail!";
@@ -84,6 +85,25 @@ namespace SGE.Controllers
                 return View("Login");
             }
 
+            if (inCategoria == null)
+            {
+                ViewData["Erro"] = "Selecione uma Categoria!";
+                return View("Login");
+            }
+
+            if (inCategoria == "1")
+            {
+                tipoInformado = "Administrador";
+            }
+            else if (inCategoria == "2")
+            {
+                tipoInformado = "Aluno";
+            }
+            else
+            {
+                tipoInformado = "Professor";
+            }
+
             Usuario usuario = _context.Usuarios.FirstOrDefault(u => u.Email == inEmail && u.Senha == inSenha);
             if (usuario != null)
             {
@@ -92,15 +112,21 @@ namespace SGE.Controllers
                     ViewData["Erro"] = "Seu cadastro está desativado!";
                     return View("Login");
                 }
-                HttpContext.Session.SetString("usuario", usuario.UsuarioNome);
-                HttpContext.Session.SetString("email", usuario.Email);
-                HttpContext.Session.SetString("tipo", usuario.TipoUsuarioId.ToString());
-                HttpContext.Session.SetString("usuarioId", usuario.UsuarioId.ToString());
-                return RedirectToAction("Index", "Home");
+                string tipoCadastrado = _context.TiposUsuario.Where(tu => tu.TipoUsuarioId == usuario.TipoUsuarioId).FirstOrDefault().Tipo;
+                if (tipoCadastrado == tipoInformado)
+                {
+                    HttpContext.Session.SetString("usuario", usuario.UsuarioNome);
+                    HttpContext.Session.SetString("email", usuario.Email);
+                    HttpContext.Session.SetString("tipo", usuario.TipoUsuarioId.ToString());
+                    HttpContext.Session.SetString("usuarioId", usuario.UsuarioId.ToString());
+                    return RedirectToAction("Index", "Home");
+                }
+                ViewData["Erro"] = "O E-mail, Senha e/ou Categoria Informados não conferem!\nVerifique as informações e tente novamente.";
+                return View("Login");
             }
             else
             {
-                ViewData["Erro"] = "O E-mail e/ou a Senha Informados não conferem!\nVerifique as informações e tente novamente.";
+                ViewData["Erro"] = "O E-mail, Senha e/ou Categoria Informados não conferem!\nVerifique as informações e tente novamente.";
                 return View("Login");
             }
         }

@@ -112,6 +112,16 @@ namespace SGE.Controllers
         }
 
         // GET: TiposUsuario/Edit/5
+
+
+
+
+
+
+
+
+
+        // GET: TiposUsuario/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (HttpContext.Session.GetString("email") == null)
@@ -154,35 +164,16 @@ namespace SGE.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                TipoUsuario tipoUsuarioAntigo = _context.TiposUsuario.Where(a => a.TipoUsuarioId == tipoUsuario.TipoUsuarioId).FirstOrDefault();
-                if (tipoUsuarioAntigo.Tipo == "Administrador" || tipoUsuarioAntigo.Tipo == "Aluno")
-                {
-                    ViewData["Erro"] = "Os tipos de usuários ADMINISTRADOR e ALUNO não podem ser alterados!";
-                    return View(tipoUsuario);
-                }
+            TipoUsuario tipoUsuarioAntigo = _context.TiposUsuario.Where(a => a.TipoUsuarioId == tipoUsuario.TipoUsuarioId).FirstOrDefault();
 
-                try
-                {
-                    _context.Update(tipoUsuario);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TipoUsuarioExists(tipoUsuario.TipoUsuarioId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
+            ViewData["Erro"] = "Não é possivel alterar os Tipos de Usuários!";
             return View(tipoUsuario);
+
         }
+
+
+        //GET: TipoUsuario/Edit/professor
+
 
         // GET: TiposUsuario/Delete/5
         public async Task<IActionResult> Delete(Guid? id)

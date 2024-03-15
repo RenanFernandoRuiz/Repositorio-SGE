@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<SGE.Models.Usuario>
 @{
     ViewData["Title"] = "Login";
+
 }
-<body id="divLogin" class="text-center">
+<div id="divLogin" class="text-center">
 
 
     @if (ViewData["Erro"] != null)
     {
-        <div class="row d-flex justify-content-center mt-5">
+        <div class="row d-flex justify-content-center pt-5">
             <div class="col-md-4 text-center">
                 <div class="alert alert-danger">
                     <strong> @ViewData["Erro"] </strong>
@@ -17,7 +18,7 @@
     }
 
     <div class="container">
-        <div class="row d-flex justify-content-center mt-5">
+        <div class="row d-flex justify-content-center pt-5">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
@@ -33,10 +34,40 @@
                             <div class="form-group mt-3">
                                 <label for="inSenha" class="control-label">Digite sua Senha</label>
                                 <input name="inSenha" id="inSenha" type="password" class="form-control" />
+
                             </div>
-                            <div class="form-group mt-3">
-                                <label for="inSenha" class="control-label">Digite sua Categoria</label>
+
+                            <label class="control-label" style="margin-top:20px;">Categoria</label>
+
+                            <div class="form-control " style="margin-top:0px;">
+
+                                <style>
+                                    .select-custom {
+                                        height: 35px; /* Defina a altura desejada */
+                                        width: 1000px;
+                                        margin-top: -5px;
+                                        margin-bottom: -5px;
+                                        margin-left: -10px;
+                                        margin-right: -10px;
+                                        border: none;
+                                    }
+                                </style>
+
+                                <select name="inCategoria" id="inCategoria" class="select-custom">
+                                    <option value="2">Aluno(a)</option>
+                                    <option value="3">Professor(a)</option>
+                                    <option value="1">Administrador</option>
+                                </select>
+
+                                <script id="inCategoria">
+                                    document.getElementById("opcoes").addEventListener("change", function () {
+                                        var selectedOption = this.value;
+                                        console.log("Opção selecionada:", selectedOption);
+                                    });
+                                </script>
+
                             </div>
+
                             <div class="form-group mt-3 ">
                                 <input type="submit" value="Entrar" class="btn btn-primary " />
                             </div>
@@ -48,4 +79,4 @@
             </div>
         </div>
     </div>
-</body>
+</div>

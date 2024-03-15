@@ -11,85 +11,93 @@
 
 
 }
-<body id="divAluno" class="text-center">
-    <h1>Alunos Bonzinhos</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center my-5">
+        <div class="card border border-warning-subtle">
+            <div class="card-body">
+                <div id="alinhar"> <h1>Alunos</h1> <a asp-action="Create" target="_blank" class="btn btn-info">Criar </a> </div>
+                <table class="table">
+                    <thead>
+                        <tr style="border-color:black">
+                            <th>
+                                Foto
+                            </th>
+                            <th>
+                                Aluno de Nome
+                            </th>
+                            <th>
+                                Matricula
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Celular
+                            </th>
+                            <th>
+                                Data de Nascimento
+                            </th>
+                            <th>
+                                Cad. Ativo
+                            </th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr style="border-color:black">
+                                <td>
+                                    @{
+                                        // Verifica se a imagem existe
+                                        var filePath = Directory.GetCurrentDirectory() + "\\Data\\Content\\Photo\\" +
+                                        item.UrlFoto;
+                                        if (System.IO.File.Exists(filePath))
+                                        {
+                                            // Carrega a imagem em memória
+                                            var imageBytes = await System.IO.File.ReadAllBytesAsync(filePath);
+                                            var imageBase64 = Convert.ToBase64String(imageBytes);
 
-    <p>
-        <a asp-action="Create">CRIAR NOVO </a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.UrlFoto)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AlunoNome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Matricula)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Celular)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DataNascimento)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CadAtivo)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @{
-                            // Verifica se a imagem existe
-                            var filePath = Directory.GetCurrentDirectory() + "\\Data\\Content\\Photo\\" +
-                            item.UrlFoto;
-                            if (System.IO.File.Exists(filePath))
-                            {
-                                // Carrega a imagem em memória
-                                var imageBytes = await System.IO.File.ReadAllBytesAsync(filePath);
-                                var imageBase64 = Convert.ToBase64String(imageBytes);
-
-                                // Exibe a imagem na view
-                                <img src="data:image/png;base64,@imageBase64"
-                                     alt="Foto do Perfil" height="50" />
-                            }
+                                            // Exibe a imagem na view
+                                            <img src="data:image/png;base64,@imageBase64"
+                                                 alt="Foto do Perfil" height="50" />
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AlunoNome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Matricula)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Celular)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CadAtivo)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.AlunoId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="PenFill" width="40" height="20" aria-label="PenFill" color="rgba(250, 204, 46, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.AlunoId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="CardList" width="40" height="20" aria-label="CardList" color="rgba(0, 255, 10, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                </td>
+                                <td>
+                                    <a asp-action="Delete" asp-route-id="@item.AlunoId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="TrashFill" width="40" height="20" aria-label="TrashFill" color="rgba(255, 0, 0, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                </td>
+                            </tr>
                         }
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AlunoNome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Matricula)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Celular)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataNascimento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CadAtivo)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.AlunoId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.AlunoId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.AlunoId">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</body>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
