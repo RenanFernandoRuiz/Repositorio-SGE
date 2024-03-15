@@ -3,75 +3,79 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TurmaNome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Turno)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Serie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CadAtivo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CadInativo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataInicio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataFim)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TurmaEncerrada)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TurmaNome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Turno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Serie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CadAtivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CadInativo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataFim)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TurmaEncerrada)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TurmaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TurmaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TurmaId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container">
+    <div class="row d-flex justify-content-center my-5">
+        <div class="card border border-warning-subtle">
+            <div class="card-body">
+                <h1>Turma</h1> <a asp-action="Create" target="_blank" class="btn btn-info">Criar</a>
+                <table class="table">
+                    <thead>
+                        <tr style="border-color:black">
+                            <th>
+                                TurmaNome
+                            </th>
+                            <th>
+                                Turno
+                            </th>
+                            <th>
+                                Serie
+                            </th>
+                            <th>
+                                CadAtivo
+                            </th>
+                            <th>
+                                CadInativo
+                            </th>
+                            <th>
+                                DataInicio
+                            </th>
+                            <th>
+                                DataFim
+                            </th>
+                            <th>
+                                TurmaEncerrada
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr style="border-color:black">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TurmaNome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Turno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Serie)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CadAtivo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CadInativo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataInicio)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataFim)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TurmaEncerrada)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.TurmaId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="PenFill" width="40" height="20" aria-label="PenFill" color="rgba(250, 204, 46, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                    <a asp-action="Details" asp-route-id="@item.TurmaId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="CardList" width="40" height="20" aria-label="CardList" color="rgba(0, 255, 10, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                    <a asp-action="Delete" asp-route-id="@item.TurmaId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="TrashFill" width="40" height="20" aria-label="TrashFill" color="rgba(255, 0, 0, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

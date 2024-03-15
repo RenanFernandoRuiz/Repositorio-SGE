@@ -1,13 +1,13 @@
 ﻿@model SGE.Models.Aluno
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Registrar Aluno";
     Guid TipoUser = (Guid)@ViewData["TipoUsuarioId"];
 }
 
-<h1>Create</h1>
-
-<h4>Aluno</h4>
+<div class="col-md-3 mx-auto text-center mt-5">
+    <h1>Cadastrar Aluno</h1>
+</div>
 <hr />
 @if (ViewData["Erro"] != null)
 {
@@ -22,8 +22,9 @@
 }
 
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="col-md-3 mx-auto">
+        <form class="custom-form" asp-action="Create" method="post" enctype="multipart/form-data">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Matricula" class="control-label"></label>
@@ -102,16 +103,16 @@
                 <input asp-for="UrlFoto" type="file" class="form-control" name="UrlFoto" />
                 <span asp-validation-for="UrlFoto" class="text-danger"></span>
             </div>
-            <br/>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary"  />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
-        <br/>
+        <br />
     </div>
 </div>
 
-<div>
+<div class="col-md-3 mx-auto text-center" ;>
     <a asp-action="Index">VOLTAR PARA A LISTA</a>
 </div>
 
