@@ -4,36 +4,40 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container">
-    <div class="row d-flex justify-content-center my-5">
-        <div class="card border border-warning-subtle">
-            <div class="card-body">
-                <h1>Tipo de Usuario</h1> <a asp-action="Create" target="_blank" class="btn btn-info">Criar</a>
-                <table class="table">
-                    <thead>
-                        <tr style="border-color:black">
-                            <th>
-                               Tipo
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+<div id="bagulho" class="container">
+    <div class="col-5 ">
+        <div class="row d-flex justify-content-center my-5">
+            <div class="card border border-warning-subtle justify-content-center">
+                <div class="card-body">
+                    <div id="alinhar">
+                        <h1>Tipo de Usuario</h1> <a asp-action="Create" target="_blank" class="btn btn-info">Criar</a>
+                    </div>
+                    <table class="table">
+                        <thead>
                             <tr style="border-color:black">
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Tipo)
-                                </td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.TipoUsuarioId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="PenFill" width="40" height="20" aria-label="PenFill" color="rgba(250, 204, 46, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
-                                    <a asp-action="Details" asp-route-id="@item.TipoUsuarioId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="CardList" width="40" height="20" aria-label="CardList" color="rgba(0, 255, 10, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
-                                    <a asp-action="Delete" asp-route-id="@item.TipoUsuarioId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="TrashFill" width="40" height="20" aria-label="TrashFill" color="rgba(255, 0, 0, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
-                                </td>
+                                <th>
+                                    Tipo
+                                </th>
+                                <th></th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr style="border-color:black">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tipo)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.TipoUsuarioId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="PenFill" width="40" height="20" aria-label="PenFill" color="rgba(250, 204, 46, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                        <a asp-action="Details" asp-route-id="@item.TipoUsuarioId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="CardList" width="40" height="20" aria-label="CardList" color="rgba(0, 255, 10, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                        <a asp-action="Delete" asp-route-id="@item.TipoUsuarioId" target="_blank" class="btn btn-dark"> <svg bootstrap-icon="TrashFill" width="40" height="20" aria-label="TrashFill" color="rgba(255, 0, 0, 1)" class="mb-3" style="margin-top: 15px;"></svg></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
